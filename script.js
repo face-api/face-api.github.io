@@ -5,9 +5,7 @@ faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
 faceapi.nets.faceExpressionNet.loadFromUri('/models'),
 faceapi.nets.ageGenderNet.loadFromUri('/models')
 ]).then(()=>{
-// prepareFaceDetector();
 loadVideo();
-
 });
 function prepareFaceDetector() {
    let base_image = new Image();
