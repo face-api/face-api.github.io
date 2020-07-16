@@ -32,8 +32,8 @@ navigator.getUserMedia = navigator.getUserMedia ||
 if (navigator.getUserMedia) {
    navigator.getUserMedia({ audio: true, video: { width: 1280, height: 720 } },
       function(stream) {
-         var video = document.getElementById('video').src="test.mp4";
-         // video.srcObject = stream;
+         //var video = document.getElementById('video').src="test.mp4";
+          video.srcObject = stream;
 
          video.onloadedmetadata = function(e) {
            video.play();
