@@ -25,29 +25,30 @@ function prepareFaceDetector() {
 
 function loadVideo(){
 
-// navigator.getUserMedia = navigator.getUserMedia ||
-                        //  navigator.webkitGetUserMedia ||
-                        //  navigator.mozGetUserMedia;
+navigator.getUserMedia = navigator.getUserMedia ||
+                         navigator.webkitGetUserMedia ||
+                         navigator.mozGetUserMedia;
 
-// if (navigator.getUserMedia) {
-   // navigator.getUserMedia({ audio: true, video: { width: 1280, height: 720 } },
-      // function(stream) {
-         var video = document.getElementById('video').src="test.mp4";
-         //  video.srcObject = stream;
+if (navigator.getUserMedia) {
+   navigator.getUserMedia({ audio: true, video: { width: 1280, height: 720 } },
+       function(stream) {
+         var video = document.getElementById('video')
+         //  var video = document.getElementById('video').src="test.mp4";
+           video.srcObject = stream;
 
-         video.onloadedmetadata = function(e) {
-           video.play();
+          video.onloadedmetadata = function(e) {
+            video.play();
            video.playbackRate = 0.1;
 
          };
-      // },
-      // function(err) {
-         // console.log("The following error occurred: " + err.name);
-      // }
-   // );
-// } else {
-//    console.log("getUserMedia not supported");
-// }
+       },
+       function(err) {
+          console.log("The following error occurred: " + err.name);
+}
+);
+} else {
+    console.log("getUserMedia not supported");
+ }
 
 }
 
