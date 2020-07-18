@@ -25,6 +25,8 @@ function prepareFaceDetector() {
 
 function loadVideo() {
     var video = document.getElementById('video')
+        video.muted = false;
+        video.volume = 0.1;
     video.src = "/test.mp4";
     // video.onloadedmetadata = function (e) {
     //     video.play();
