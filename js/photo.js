@@ -13,9 +13,11 @@ function loadFace() {
     var url = prompt('Paste photo url');
     photo.setAttribute('src', url);
 
-    if (!photo.complete) {
-        alert('Photo origin site is blocking access, please try different photo.')
-    }
+    setTimeout(function(){
+        if (!photo.complete) {
+            alert('Photo origin site is blocking access, please try different photo.')
+        }    
+    },2000)
 }
 
 let once = true;
