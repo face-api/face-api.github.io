@@ -7,20 +7,7 @@ Promise.all([
 ]).then(() => {
     loadVideo();
 });
-function prepareFaceDetector() {
-    let base_image = new Image();
-    base_image.src = "/startFaceDetect.jpg";
-    base_image.onload = function () {
-        const useTinyModel = true;
-        const fullFaceDescription = faceapi
-            .detectSingleFace(base_image, new faceapi.TinyFaceDetectorOptions())
-            .run()
-            .then(res => {
-                console.log("--------> " + JSON.stringify(res));
-            });
-    };
-    loadVideo();
-}
+
 
 
 function loadVideo() {
@@ -28,10 +15,7 @@ function loadVideo() {
         video.muted = false;
         video.volume = 0.1;
     video.src = "/test.mp4";
-    // video.onloadedmetadata = function (e) {
-    //     video.play();
-    //     video.playbackRate = 0.1;
-    // };
+
 }
 
 let once = true;
