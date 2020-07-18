@@ -1,32 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+
     <title>Face-API</title>
     <script src="faceapi.min.js"></script>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        display: flex;;
-        justify-content: center;
-        align-items: center;
-    }
-    canvas {
-        position: absolute;
-    }
-</style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            ;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            position: absolute;
+        }
+    </style>
 </head>
 
 <body>
-    
-    <video id="video" width="1280" height="720" controls autoplay muted></video>
-</body>
-<script  defer src="script.js"></script>
-<script>
+    <div id="buttons">
+        <button onclick="loadScript(1)">Test Webcam</button>
+        <button onclick="loadScript(2)">Test Video</button>
+        <button onclick="loadScript(3)">Test Photo</button>
 
+    </div>
+    <video style="display: none"  id="video" width="1280" height="720" controls autoplay muted></video>
+    
+    <img height="100%" src="" id="photo" crossorigin="anonymous"/>
+</body>
+
+<script>
+    function loadScript(script) {
+        document.getElementById('buttons').style.display = "none";
+        var video_script = document.createElement('script');
+
+        if (script === 1) {
+            document.getElementById('video').style.display = "block";
+
+            video_script.setAttribute('src', '/js/webcam.js');
+        } else if(script === 2) {
+            document.getElementById('video').style.display = "block";
+
+            video_script.setAttribute('src', '/js/video.js');
+        } else {
+            video_script.setAttribute('src', '/js/photo.js');
+
+        }
+        document.head.appendChild(video_script);
+    }
 </script>
+
 </html>
