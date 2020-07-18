@@ -25,7 +25,7 @@ function prepareFaceDetector() {
 
 function loadVideo() {
     var video = document.getElementById('video')
-    video.src = "/test.webm";
+    video.src = "/test.mp4";
     // video.onloadedmetadata = function (e) {
     //     video.play();
     //     video.playbackRate = 0.1;
